@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const router = require("./routes");
 const app = express();
+app.use(bodyParser.urlencoded({extended:true}));
 
 mongoose
 .connect("mongodb://localhost:27017/aircraft")
@@ -10,4 +12,4 @@ mongoose
 
 app.use("/",router);
 
-app.listen(4000,()=>console.log("App running on port 4000"));
+app.listen(5000,()=>console.log("App running on port 5000"));
